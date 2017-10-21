@@ -18,7 +18,8 @@ export class AppComponent {
 		for(var i = 1; i <= number; i++){
 			this.items.push({
 				id: i,
-				text: "Story " + i
+				text: "Story " + i,
+				page: "story-"+ i +".html"
 			});
 		}
 	}

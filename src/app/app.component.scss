@@ -1,11 +1,21 @@
 
-.contentBox {
-	min-height: 50%;
+.contentBox { float: right;
+	width: 70%; min-height: 50%;
 	margin: 10px; padding: 4px 8px;
 	border: 1px solid hotpink; border-radius: 10px;
 	background-color: rgba(200,200,250,0.75);
 }
 
+.menu { float: left;
+	width: 20%;
+	margin: 4px;
+}
+
 .story {
+	margin: 2px auto; padding: 3px 6px;
 	border: 1px solid #AAA;
+}
+.story:hover {
+	background-color: rgba(204,255,0,0.75);
+	cursor: pointer;
 }
