@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
 	selector: 'app-root',
@@ -10,7 +11,7 @@ export class AppComponent {
 	//
 	items: any[] = [];
 	//
-	constructor() {
+	constructor(private router: Router) {
 		this.addRecords(5);
 	}
 	//
@@ -24,4 +25,8 @@ export class AppComponent {
 		}
 	}
 	//
+	nav2url(Url: String) {
+		this.router.navigate([Url]);
+  	}
+  	//
 }
