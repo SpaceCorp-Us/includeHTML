@@ -1,6 +1,7 @@
 import { APP_ROUTING } from './app.routing';
 import { AppComponent } from './app.component';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpModule }    from '@angular/http';
 import { NgModule } from '@angular/core';
 import { SplashComponent } from './splash/splash.component';
 import { ViewerComponent } from './viewer/viewer.component';
@@ -12,7 +13,8 @@ import { ViewerComponent } from './viewer/viewer.component';
     SplashComponent
   ],
   imports: [
-    BrowserModule,
+	 BrowserModule,
+	 HttpModule,
     APP_ROUTING
   ],
   providers: [],
