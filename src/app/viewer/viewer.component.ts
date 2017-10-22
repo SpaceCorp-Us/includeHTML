@@ -34,7 +34,7 @@ export class ViewerComponent implements OnInit {
 			.subscribe( (params: Params) => {
 				this.itemID = params['id'];
 				this.fetchHTML('data/story-'+ this.itemID +'.html');
-				console.log(this.htmlContent); // <<<<<<<<<<<< Problem, still not getting data !
+				console.log(this.htmlContent); 
 				// console.log(this.itemID);
 			})
 		;
