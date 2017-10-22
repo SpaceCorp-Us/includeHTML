@@ -29,16 +29,11 @@ export class ViewerComponent implements OnInit {
 		private http: Http
 	) {}
 	//
-	private handleError (error: Response | any) {
-		console.error('ViewerComponent::handleError', error);
-		return Observable.throw(error);
-  	}
-	//
   	ngOnInit() {
 		this.activeRoute.params
 			.subscribe( (params: Params) => {
 				this.itemID = params['id'];
-				this.fetchHTML('../data/story-'+ this.itemID +'.html');
+				this.fetchHTML('data/story-'+ this.itemID +'.html');
 				console.log(this.htmlContent); // <<<<<<<<<<<< Problem, still not getting data !
 				// console.log(this.itemID);
 			})
@@ -47,12 +42,20 @@ export class ViewerComponent implements OnInit {
 	// Get html content to pass to Component
 	fetchHTML(pathFile: string) {
 		let options = new RequestOptions({ headers: this.myHeaders });
-		console.log(pathFile);
+		// console.log(pathFile);
 		this.http.get(pathFile, options)
-			.map( (html: any) => {
-				this.htmlContent = html.data;
-			})
-			.catch(this.handleError)
+			.map(
+				(html: any) => html.text()
+			)
+			.subscribe(
+				html => this.htmlContent = html,
+				(error: any) => {
+					console.log(error);
+			  	},
+				() => {
+					console.log('HTML Transferred');
+				}
+			)
 		;
 	}
 	//
